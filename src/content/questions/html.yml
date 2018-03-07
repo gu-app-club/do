@@ -1,0 +1,17 @@
+# The main question you want answered, just a string
+question: Would you say you're experienced with HTML?
+
+# A dictionary representing each of the answers
+answers:
+
+  # A single answer
+  - text: "Yes" # What get's shown to the user
+    score: 
+      - javascript: -1 # Negative because they want to learn something else
+        html: 1
+  - text: "No"
+    score:
+      - javascript: 1 # Positive because they should learn this more!
+  - text: "dogs are a cool animal"
+    score:
+      - javascript: -1 
