@@ -1,13 +1,30 @@
-# gatsby-starter-default
-The default Gatsby starter
+# Do: a Suggestion Engine
 
-For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/)
+This is the repo for the suggestion engine. 
 
-Install this starter (assuming Gatsby is installed) by running from your CLI:
+## Project stack 
+
+This project is built in [gatsbyjs](https://www.gatsbyjs.org/), a framework for building web frontends on the [JAMStack](https://jamstack.org/).
+
+## Setting up the project 
+
+We use [yarn](https://yarnpkg.com/en/) as our package manager. If you're used to `npm`, you're welcome to use that too though we can't guarantee everything will work the same.
+
+After you have cloned the project, run the following:
+
 ```
-gatsby new gatsby-example-site
+cd ./blog
+yarn
 ```
 
-## Deploy
+And... your done! This site uses no database, so it's pretty simple to setup. And, since all our data is stored in the repo, you're *always* working with the same information you see on the production site which means we rarely get "worked on my machine" bugs. 
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+## Running the project 
+
+Once you've set everything up, you can run the following to start the development mode:
+
+```
+yarn dev
+```
+
+This will start a local instance of the website running at `http://localhost:8000/`. Open it up in your browser to see the site! 
