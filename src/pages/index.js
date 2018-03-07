@@ -1,25 +1,26 @@
 import React from "react";
-import Question from "../components/question";
+import Quiz from "../components/quiz";
 
-const QuestionFeed = ({ questions }) => {
+class IndexPage extends React.Component {
 
-  const qs = questions.map(({ node }) => (
-    <Question
-      key={node.question}
-      question={node.question}
-      answers={node.answers}
-    />
-  ));
+  constructor(props) {
+    super(props);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
 
-  return <div>{qs}</div>;
-};
+  onSubmit(values) {
+    console.log(values);
+  }
 
-const IndexPage = ({ data }) => (
-  <div>
-    <h1>This is a quiz</h1>
-    <QuestionFeed questions={data.allQuestionsYaml.edges} />
-  </div>
-);
+  render() {
+    return (
+      <div>
+        <h1>This is a quiz</h1>
+        <Quiz questions={this.props.data.allQuestionsYaml.edges} onSubmit={this.onSubmit} />
+      </div>
+    );
+  }
+}
 
 export default IndexPage;
 
