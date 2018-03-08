@@ -6,7 +6,7 @@ test('total can add up an array', () => {
         css: -1
     }, {
         html: 0.5,
-        css: 5
+        css: 1
     }])
 
     expect(t.html).toBe(1);
