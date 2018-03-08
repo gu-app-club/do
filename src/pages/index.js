@@ -1,15 +1,22 @@
 import React from "react";
 import Quiz from "../components/quiz";
+import { scoreFromString, total } from "../lib/score";
 
 class IndexPage extends React.Component {
 
   constructor(props) {
     super(props);
+
+    this.state = {
+      score: {}
+    }
+
     this.onSubmit = this.onSubmit.bind(this);
   }
 
   onSubmit(values) {
-    console.log(values);
+    const ledger = Object.keys(values).map(key => scoreFromString(values[key]));
+    this.setState({score: total(ledger)});
   }
 
   render() {
@@ -17,6 +24,8 @@ class IndexPage extends React.Component {
       <div>
         <h1>This is a quiz</h1>
         <Quiz questions={this.props.data.allQuestionsYaml.edges} onSubmit={this.onSubmit} />
+
+        <p>{this.state.score.html}</p>
       </div>
     );
   }

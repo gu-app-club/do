@@ -7,8 +7,8 @@ answers:
   # A single answer
   - text: "Yes" # What get's shown to the user
     score: 
-      - javascript: -1 # Negative because they want to learn something else
-        html: 1
+      - javascript: -4 # Negative because they want to learn something else
+        html: 3
   - text: "No"
     score:
-      - javascript: 1 # Positive because they should learn this more!
+      - javascript: 2 # Positive because they should learn this more!
