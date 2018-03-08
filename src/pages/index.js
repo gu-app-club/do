@@ -1,31 +1,37 @@
 import React from "react";
 import Quiz from "../components/quiz";
 import { scoreFromString, total } from "../lib/score";
+import Suggestions from "../components/suggestion-feed";
 
 class IndexPage extends React.Component {
-
   constructor(props) {
     super(props);
 
     this.state = {
       score: {}
-    }
+    };
 
     this.onSubmit = this.onSubmit.bind(this);
   }
 
   onSubmit(values) {
     const ledger = Object.keys(values).map(key => scoreFromString(values[key]));
-    this.setState({score: total(ledger)});
+    this.setState({ score: total(ledger) });
   }
 
   render() {
     return (
       <div>
         <h1>This is a quiz</h1>
-        <Quiz questions={this.props.data.allQuestionsYaml.edges} onSubmit={this.onSubmit} />
+        <Quiz
+          questions={this.props.data.allQuestionsYaml.edges}
+          onSubmit={this.onSubmit}
+        />
 
         <p>{this.state.score.html}</p>
+
+        <h1>These are suggestions</h1>
+        <Suggestions data={this.props.data} score={this.state.score} />
       </div>
     );
   }
@@ -48,6 +54,8 @@ export const pageQuery = graphql`
             score {
               html
               javascript
+              css
+              react
             }
           }
         }

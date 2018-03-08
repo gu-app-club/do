@@ -7,9 +7,6 @@ score:
     css: 3 
 ---
 
-# My First HTML Site
-
 Do this
 
-## I am markdown
-
+dogs are really cool man

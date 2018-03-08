@@ -7,9 +7,4 @@ score:
     react: 2
 ---
 
-# My First HTML Site
-
-Do this
-
-## I am markdown
-
+hey ya javascript brah
