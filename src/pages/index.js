@@ -22,7 +22,7 @@ class IndexPage extends React.Component {
   render() {
     return (
       <div>
-        <h1>This is a quiz</h1>
+        <h1>This is an apple</h1>
         <Quiz
           questions={this.props.data.allQuestionsYaml.edges}
           onSubmit={this.onSubmit}
