@@ -11,4 +11,4 @@ test('total can add up an array', () => {
 
     expect(t.html).toBe(1);
     expect(t.css).toBe(0);
-})
+})  
