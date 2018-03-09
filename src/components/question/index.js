@@ -1,6 +1,7 @@
 import React from "react";
 import { Text, Radio, RadioGroup, Select, Checkbox } from "react-form";
 import { scoreToString } from "../../lib/score";
+import styled from 'styled-components';
 
 // Take the a 2d array: [[<label/>, <radio/>], [...], ...] and make it 1d:
 // [<label/>, <radio/>, <label/>, <radio/>, ...]
@@ -28,9 +29,13 @@ const Answers = ({ answers, question }) => {
   return <p><RadioGroup field={question}>{flattenedAnswerArray}</RadioGroup></p>;
 };
 
+const Header = styled.h2`
+  font-size: 2rem;
+`;
+
 export default ({ question, answers }) => (
   <div>
-    <h2>{question}</h2>
+    <Header>{question}</Header>
 
     <Answers answers={answers} question={question} />
   </div>

@@ -7,12 +7,18 @@ import styled from "styled-components";
 
 // A generic text component that can be extended
 const AbstractText = styled.div`
-    color: ${props => props.white ? "#fff" : props.theme.dark.regular};
+  color: ${props => props.white ? "#fff" : props.theme.dark.regular};
+
+  text-shadow: ${props => props.white ? '0 1px 2px rgba(0,0,0,0.1)' : "none"};
+
 `;
 
 export const HeaderParagraph = AbstractText.withComponent('p').extend`
   font-size: 4rem;
+  font-weight: 200;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
 `;
+
 
 //h1 but with a bar under it 
 const FancyHeaderWrapper = AbstractText.withComponent('h1').extend`
@@ -55,26 +61,73 @@ export const FancyHeader = ({children, ...rest}) => (
  */
 
 export const Container = styled.div`
-  padding: 3rem;
+  padding: 4rem;
 `;
 
 export const FancyHero = Container.extend`
   background-image: radial-gradient(60% 136%, #34E7E4 37%, #4BCFFA 100%);
+  position: relative;
+  max-height: 80vh;
 
   * {
     color: white;
+
+    &::selection {
+      background: ${props => props.theme.red.light};
+    }
+
+    &::-moz-selection {
+      background: ${props => props.theme.red.light};
+    }
+  }
+
+  &::after {
+    display: block;
+    background: #4BCFFA;
+    position: absolute;
+    bottom: -19px;
+    transform: translateX(-50%);
+    left: 50%;
+    -webkit-box-pack: justify;
+    height: 20px;
+    content: "";
+    width: 100%;
+    opacity: 0.2;
   }
 `
 
 export const Card = Container.extend`
   background: white;
-  box-shadow: 2px 4px 400px 10px rgba(0,0,0,0.08);
+  box-shadow: 2px 4px 80px 1px rgba(50,50,50,0.1);
   border-radius: 8px;
+  border: 1px solid ${props => props.theme.skyblue.light};
   color: ${props => props.theme.dark.regular};
-`;
 
+  * {
+    color: ${props => props.theme.dark.regular};
+    &::selection {
+      background: ${props => props.theme.skyblue.light};
+    }
+
+    &::-moz-selection {
+      background: ${props => props.theme.skyblue.light};
+    }
+  }
+`;
 
 export const Flex = styled.div`
   display: flex;
   flex-direction: ${props => props.column ? "column" : "row"};
+  width: 100%;
+  `
+
+export const CenteredHorizontal = Flex.extend`
+  width: 100%;
+  justify-content: center;
 `
+
+export const Clamp = styled.div`
+  max-width: 960px;
+  margin: 0 auto;
+  position: relative;
+`;
