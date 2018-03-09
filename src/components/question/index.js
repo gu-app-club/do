@@ -15,17 +15,17 @@ const Answers = ({ answers, question }) => {
     const id = getID(text, question);
     const scoreString = scoreToString(score[0]) // first element to avoid weird gatsby bug
 
-    return [
+    return <p>
+      <Radio key={id + "radio"} id={id} value={scoreString} />
       <label key={id + "label"} htmlFor={id}>
         {text}
-      </label>,
-      <Radio key={id + "radio"} id={id} value={scoreString} />
-    ];
+      </label>
+    </p>;
   });
 
   const flattenedAnswerArray = flatten(as);
   
-  return <RadioGroup field={question}>{flattenedAnswerArray}</RadioGroup>;
+  return <p><RadioGroup field={question}>{flattenedAnswerArray}</RadioGroup></p>;
 };
 
 export default ({ question, answers }) => (

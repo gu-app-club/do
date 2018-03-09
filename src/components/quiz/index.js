@@ -10,7 +10,7 @@ const Questions = ({ questions }) => {
       answers={node.answers}
     />
   ));
-  return <div>{qs}</div>;
+  return <p>{qs}</p>;
 };
 
 // Wrapped in react forms

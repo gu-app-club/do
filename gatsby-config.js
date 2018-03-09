@@ -20,6 +20,12 @@ module.exports = {
         path: `${__dirname}/src/content/suggestions`,
         name: "suggestions"
       }
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`open sans`]
+      }
     }
   ]
 };

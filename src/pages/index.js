@@ -2,6 +2,7 @@ import React from "react";
 import Quiz from "../components/quiz";
 import { scoreFromString, total } from "../lib/score";
 import Suggestions from "../components/suggestion-feed";
+import { FancyHeader, Container, FancyHero, Flex, HeaderParagraph, Card } from "../components/ui";
 
 class IndexPage extends React.Component {
   constructor(props) {
@@ -22,16 +23,36 @@ class IndexPage extends React.Component {
   render() {
     return (
       <div>
-        <h1>This is a quiz</h1>
-        <Quiz
-          questions={this.props.data.allQuestionsYaml.edges}
-          onSubmit={this.onSubmit}
-        />
+        <FancyHero>
+          <FancyHeader white>What should you work on?</FancyHeader>
 
-        <p>{this.state.score.html}</p>
+          <Flex>
+            <Flex column>
+              <HeaderParagraph>
+                Trying to learn to build websites? Not sure what you should learn?
+              </HeaderParagraph>
 
-        <h1>These are suggestions</h1>
-        <Suggestions data={this.props.data} score={this.state.score} />
+              <HeaderParagraph>
+                This site asks you a bit about your knowledge and suggests projects
+                that fit your skill level.
+              </HeaderParagraph>
+            </Flex>
+
+            <Card> Hello </Card>
+          </Flex>
+        </FancyHero>
+
+        <Container>
+          <Quiz
+            questions={this.props.data.allQuestionsYaml.edges}
+            onSubmit={this.onSubmit}
+          />
+
+          <p>{this.state.score.html}</p>
+
+          <h1>These are suggestions</h1>
+          <Suggestions data={this.props.data} score={this.state.score} />
+        </Container>
       </div>
     );
   }
